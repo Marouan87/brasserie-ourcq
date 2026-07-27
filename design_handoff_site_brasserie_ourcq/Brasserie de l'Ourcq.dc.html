@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:#F7F3EC;color:#14120E;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#123B2E;text-decoration:none}
+a:hover{color:#0D2C22}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+</style>
+<script src="image-slot.js"></script>
+</helmet>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,243,236,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(20,18,14,.08)">
+  <sc-if value="{{ showBanner }}" hint-placeholder-val="{{ true }}">
+    <div style="background:{{ accent }};color:#F2E9D8;text-align:center;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px">Brunch tous les week-ends · Ouvert 7j/7 de 7h à 23h</div>
+  </sc-if>
+  <div style="max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:18px">
+    <a href="#haut" style="display:flex;align-items:center;gap:12px;color:#14120E">
+      <img src="assets/logo.jpg" alt="Logo Brasserie de l'Ourcq" style="width:42px;height:42px;border-radius:50%;object-fit:cover;border:1px solid rgba(196,162,101,.6)">
+      <span style="font-family:'Abril Fatface',serif;font-weight:400;font-size:19px;letter-spacing:.02em;white-space:nowrap">Brasserie de l'Ourcq</span>
+    </a>
+    <nav style="display:flex;gap:26px;margin-left:auto;font-size:15px;letter-spacing:.06em;text-transform:uppercase;flex-wrap:wrap">
+      <a href="#menu" style="color:rgba(20,18,14,.75)" style-hover="color:#123B2E">Le menu</a>
+      <a href="#galerie" style="color:rgba(20,18,14,.75)" style-hover="color:#123B2E">Galerie</a>
+      <a href="#infos" style="color:rgba(20,18,14,.75)" style-hover="color:#123B2E">Horaires &amp; accès</a>
+    </nav>
+    <a href="tel:+33956566844" style="display:flex;align-items:center;gap:9px;background:{{ accent }};color:#F2E9D8;padding:11px 20px;border-radius:999px;font-weight:500;font-size:15px;letter-spacing:.03em;white-space:nowrap;box-shadow:0 4px 14px rgba(18,59,46,.25)" style-hover="background:#0D2C22;color:#F2E9D8">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> 09 56 56 68 44
+    </a>
+  </div>
+</header>
+
+<section id="haut" data-screen-label="Hero" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:{{ accent }}">
+  <div style="position:absolute;inset:0">
+    <image-slot id="hero-bg" shape="rect" src="uploads/Photo restaurant.jpg" placeholder="Photo de la devanture"></image-slot>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,15,.62) 0%,rgba(10,20,15,.38) 45%,rgba(10,20,15,.72) 100%);pointer-events:none"></div>
+  <div style="position:relative;text-align:center;padding:170px 24px 100px;max-width:960px;animation:fadeUp .8s ease both;pointer-events:none">
+    <p style="margin:0 0 26px;color:#C4A265;font-size:14px;letter-spacing:.4em;text-transform:uppercase;font-weight:500">Halal · Brunch · Bondy</p>
+    <h1 style="margin:0;font-family:'Cormorant Garamond',serif;color:#F7F3EC;line-height:.98">
+      <span style="display:block;font-weight:500;font-size:clamp(26px,3.2vw,40px);letter-spacing:.42em;text-transform:uppercase;text-indent:.42em">Brasserie</span>
+      <span style="display:block;font-family:'Abril Fatface',serif;font-weight:400;font-size:clamp(56px,9.5vw,132px);margin-top:10px">de l'Ourcq</span>
+    </h1>
+    <div style="width:64px;height:1px;background:#C4A265;margin:34px auto 0"></div>
+    <p style="margin:26px auto 0;max-width:560px;font-size:clamp(17px,2.2vw,20px);font-weight:300;line-height:1.6;color:rgba(247,243,236,.85)">Cuisine halal généreuse, brunch le week-end et esprit brasserie, tous les jours de 7h à 23h au cœur de Bondy.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px;pointer-events:auto">
+      <a href="tel:+33956566844" style="background:#C4A265;color:#14120E;padding:16px 30px;border-radius:999px;font-weight:600;font-size:16px;letter-spacing:.03em;box-shadow:0 6px 20px rgba(0,0,0,.25)" style-hover="background:#D4B57A;color:#14120E"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:8px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Appeler pour réserver</a>
+      <a href="#menu" style="border:1px solid rgba(247,243,236,.5);color:#F7F3EC;padding:16px 30px;border-radius:999px;font-weight:400;font-size:16px;letter-spacing:.03em" style-hover="background:rgba(247,243,236,.12);color:#F7F3EC">Voir le menu</a>
+    </div>
+    <div style="display:flex;gap:10px 34px;justify-content:center;flex-wrap:wrap;margin-top:48px;font-size:14px;letter-spacing:.06em;color:rgba(247,243,236,.65)">
+      <span>32 route d'Aulnay, 93140 Bondy</span>
+      <span>·</span>
+      <span>Tous les jours, 7h — 23h</span>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="À propos" style="max-width:1100px;margin:0 auto;padding:clamp(70px,9vw,120px) 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,72px);align-items:center">
+  <div>
+    <p style="margin:0 0 14px;color:#C4A265;font-size:13px;letter-spacing:.28em;text-transform:uppercase;font-weight:500">La maison</p>
+    <h2 style="margin:0;font-family:'Abril Fatface',serif;font-weight:400;font-size:clamp(28px,3.8vw,42px);line-height:1.1">Une brasserie de quartier, du café du matin au dîner</h2>
+    <p style="margin:22px 0 0;font-size:17px;font-weight:300;line-height:1.75;color:rgba(20,18,14,.75)">Ouverte il y a quelques semaines à Bondy, la Brasserie de l'Ourcq est un lieu simple et chaleureux où l'on vient à toute heure : petit-déjeuner dès 7h, brunch le week-end, déjeuner et dîner jusqu'à 23h.</p>
+    <p style="margin:16px 0 0;font-size:17px;font-weight:300;line-height:1.75;color:rgba(20,18,14,.75)">Toute la carte est halal, préparée avec des produits frais, dans un esprit de brasserie conviviale et accessible.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+      <span style="border:1px solid rgba(18,59,46,.3);color:{{ accent }};padding:8px 16px;border-radius:999px;font-size:13px;letter-spacing:.1em;text-transform:uppercase">100% halal</span>
+      <span style="border:1px solid rgba(18,59,46,.3);color:{{ accent }};padding:8px 16px;border-radius:999px;font-size:13px;letter-spacing:.1em;text-transform:uppercase">Brunch le week-end</span>
+      <span style="border:1px solid rgba(18,59,46,.3);color:{{ accent }};padding:8px 16px;border-radius:999px;font-size:13px;letter-spacing:.1em;text-transform:uppercase">7j/7 · 7h—23h</span>
+    </div>
+  </div>
+  <div style="aspect-ratio:4/5;min-height:320px">
+    <image-slot id="apropos" shape="rounded" radius="18" src="uploads/shared image (14).jpg" placeholder="Photo de la salle ou de l'équipe"></image-slot>
+  </div>
+</section>
+
+<section id="menu" data-screen-label="Menu" style="background:#EFE9DD;padding:clamp(70px,9vw,110px) 24px">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="text-align:center">
+      <p style="margin:0 0 14px;color:#C4A265;font-size:13px;letter-spacing:.28em;text-transform:uppercase;font-weight:500">La carte</p>
+      <h2 style="margin:0;font-family:'Abril Fatface',serif;font-weight:400;font-size:clamp(28px,3.8vw,42px)">Le menu</h2>
+      <p style="margin:16px auto 0;max-width:520px;font-size:15px;font-weight:300;line-height:1.6;color:rgba(20,18,14,.6);font-style:italic">Cuisine maison, authentique &amp; gourmande — 100% halal</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:36px 0 42px">
+      <sc-for list="{{ cats }}" as="cat" hint-placeholder-count="7">
+        <button onClick="{{ cat.onClick }}" style="background:{{ cat.bg }};color:{{ cat.fg }};border:1px solid {{ cat.border }};padding:10px 20px;border-radius:999px;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:.05em;cursor:pointer;min-height:44px;white-space:nowrap">{{ cat.name }}</button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:14px 48px">
+      <sc-for list="{{ items }}" as="it" hint-placeholder-count="6">
+        <div style="padding:16px 0;border-bottom:1px dotted rgba(20,18,14,.25)">
+          <div style="display:flex;align-items:baseline;gap:10px">
+            <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px">{{ it.name }}</span>
+            <span style="flex:1"></span>
+            <span style="color:{{ accent }};font-weight:500;white-space:nowrap">{{ it.price }}</span>
+          </div>
+          <p style="margin:5px 0 0;font-size:14.5px;font-weight:300;color:rgba(20,18,14,.6);line-height:1.5">{{ it.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:34px 0 0;text-align:center;font-size:14.5px;font-weight:300;color:rgba(20,18,14,.6)">Menu enfant — hamburger ou tenders frites + boisson + compote de pomme : <strong style="font-weight:500;color:#14120E">10,00 €</strong></p>
+    <div style="text-align:center;margin-top:26px">
+      <a href="tel:+33956566844" style="display:inline-block;background:{{ accent }};color:#F2E9D8;padding:16px 32px;border-radius:999px;font-weight:500;font-size:16px" style-hover="background:#0D2C22;color:#F2E9D8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:8px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Réserver une table — 09 56 56 68 44</a>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="L'attention du détail" style="max-width:1200px;margin:0 auto;padding:clamp(70px,9vw,120px) 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(36px,5vw,80px);align-items:center">
+  <div style="display:flex;gap:18px;align-items:flex-start">
+    <div style="flex:1.1;aspect-ratio:3/4;margin-top:56px"><image-slot id="duo-fleurs" shape="rounded" radius="14" src="uploads/shared image (11).jpg" placeholder="Photo — détail de table"></image-slot></div>
+    <div style="flex:1;aspect-ratio:3/4"><image-slot id="duo-cafe" shape="rounded" radius="14" src="uploads/shared image (15).jpg" placeholder="Photo — le café"></image-slot></div>
+  </div>
+  <div>
+    <p style="margin:0 0 14px;color:#C4A265;font-size:13px;letter-spacing:.28em;text-transform:uppercase;font-weight:500">L'art de recevoir</p>
+    <h2 style="margin:0;font-family:'Abril Fatface',serif;font-weight:400;font-size:clamp(28px,3.8vw,42px);line-height:1.12">Le soin du détail, du premier café au dernier dessert</h2>
+    <div style="width:56px;height:1px;background:#C4A265;margin:26px 0 0"></div>
+    <p style="margin:26px 0 0;font-size:17px;font-weight:300;line-height:1.75;color:rgba(20,18,14,.75)">Marbre aux reflets dorés, laiton brossé, fleurs fraîches sur chaque table : ici, tout est pensé pour que vous vous sentiez bien, dès la première gorgée de café.</p>
+    <p style="margin:16px 0 0;font-size:17px;font-weight:300;line-height:1.75;color:rgba(20,18,14,.75)">Notre machine ne dort jamais longtemps — espresso serré du matin, cappuccino du brunch ou noisette de fin de repas, le café est une affaire sérieuse à l'Ourcq.</p>
+    <a href="tel:+33956566844" style="display:inline-block;margin-top:32px;border:1px solid #14120E;color:#14120E;padding:15px 30px;letter-spacing:.14em;text-transform:uppercase;font-size:13.5px;font-weight:500" style-hover="background:#14120E;color:#F7F3EC">Réserver une table</a>
+  </div>
+</section>
+
+<section id="galerie" data-screen-label="Galerie" style="max-width:1200px;margin:0 auto;padding:clamp(70px,9vw,110px) 24px">
+  <div style="text-align:center;margin-bottom:44px">
+    <p style="margin:0 0 14px;color:#C4A265;font-size:13px;letter-spacing:.28em;text-transform:uppercase;font-weight:500">En images</p>
+    <h2 style="margin:0;font-family:'Abril Fatface',serif;font-weight:400;font-size:clamp(28px,3.8vw,42px)">Les classiques, faits maison</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2.5vw,34px);align-items:start;max-width:1150px;margin:0 auto">
+    <div style="aspect-ratio:3/4"><image-slot id="g1" shape="rounded" radius="16" src="uploads/WhatsApp Image 2026-07-27 at 10.26.02.jpeg" placeholder="Photo — plat signature"></image-slot></div>
+    <div style="aspect-ratio:3/4;margin-top:clamp(24px,4vw,64px)"><image-slot id="g2" shape="rounded" radius="16" src="uploads/WhatsApp Image 2026-07-27 at 10.27.43.jpeg" placeholder="Photo — burger maison"></image-slot></div>
+    <div style="aspect-ratio:3/4"><image-slot id="g3" shape="rounded" radius="16" src="uploads/WhatsApp Image 2026-07-27 at 10.26.02 (2).jpeg" placeholder="Photo — brunch du week-end"></image-slot></div>
+    <div style="aspect-ratio:3/4;margin-top:clamp(24px,4vw,64px)"><image-slot id="g4" shape="rounded" radius="16" src="uploads/WhatsApp Image 2026-07-27 at 10.29.29.jpeg" placeholder="Photo — dessert"></image-slot></div>
+  </div>
+  <p style="margin:34px 0 0;text-align:center;font-size:14.5px;font-weight:300;font-style:italic;color:rgba(20,18,14,.55)">Sélection à titre indicatif. La carte évolue avec les saisons.</p>
+</section>
+
+<section id="avis" data-screen-label="Avis" style="background:{{ accent }};color:#F2E9D8;padding:clamp(70px,9vw,110px) 24px">
+  <div style="max-width:1000px;margin:0 auto;text-align:center">
+    <p style="margin:0 0 14px;color:#C4A265;font-size:13px;letter-spacing:.28em;text-transform:uppercase;font-weight:500">Vos retours</p>
+    <h2 style="margin:0;font-family:'Abril Fatface',serif;font-weight:400;font-size:clamp(28px,3.8vw,42px);color:#F7F3EC">Ils poussent la porte</h2>
+    <div style="margin-top:44px">
+      <div style="font-family:'Abril Fatface',serif;line-height:1;color:#F7F3EC"><span style="font-size:clamp(84px,12vw,150px)">4,6</span><span style="font-size:clamp(30px,4.5vw,52px);color:#E8DCC3;margin-left:8px">/5</span></div>
+      <div style="display:flex;gap:6px;justify-content:center;margin-top:18px;font-size:22px;color:#C4A265;letter-spacing:4px">★★★★★</div>
+      <p style="margin:14px 0 0;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:rgba(242,233,216,.6)">Note Google · Bondy</p>
+    </div>
+    <div style="position:relative;max-width:680px;margin:52px auto 0;min-height:210px">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="1">
+        <div style="position:absolute;inset:0;opacity:{{ r.opacity }};transition:opacity .8s ease;pointer-events:none;display:flex;flex-direction:column;justify-content:flex-start">
+          <p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.6vw,25px);line-height:1.5;color:#F7F3EC">« {{ r.text }} »</p>
+          <p style="margin:20px 0 0;font-size:13.5px;letter-spacing:.18em;text-transform:uppercase;color:#C4A265">{{ r.author }} <span style="color:rgba(242,233,216,.55)">· ★★★★★ · {{ r.when }}</span></p>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;gap:8px;justify-content:center;margin-top:26px">
+      <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+        <button onClick="{{ d.onClick }}" aria-label="Voir l'avis" style="width:8px;height:8px;border-radius:50%;border:none;padding:0;cursor:pointer;background:{{ d.bg }}"></button>
+      </sc-for>
+    </div>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:40px">
+      <a href="https://share.google/uWqf6rlOmxxFRQvqM" target="_blank" rel="noopener" style="background:#C4A265;color:#14120E;padding:15px 28px;border-radius:999px;font-weight:600;font-size:15px" style-hover="background:#D4B57A;color:#14120E">★ Laisser un avis sur Google</a>
+      <a href="https://share.google/uWqf6rlOmxxFRQvqM" target="_blank" rel="noopener" style="border:1px solid rgba(242,233,216,.5);color:#F2E9D8;padding:15px 28px;border-radius:999px;font-size:15px" style-hover="background:rgba(242,233,216,.12);color:#F2E9D8">Voir la fiche Google</a>
+    </div>
+  </div>
+</section>
+
+<section id="infos" data-screen-label="Infos pratiques" style="max-width:1100px;margin:0 auto;padding:clamp(70px,9vw,110px) 24px">
+  <div style="text-align:center;margin-bottom:48px">
+    <p style="margin:0 0 14px;color:#C4A265;font-size:13px;letter-spacing:.28em;text-transform:uppercase;font-weight:500">Infos pratiques</p>
+    <h2 style="margin:0;font-family:'Abril Fatface',serif;font-weight:400;font-size:clamp(28px,3.8vw,42px)">Nous trouver</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+    <div style="background:#fff;border:1px solid rgba(20,18,14,.08);border-radius:18px;padding:34px 30px">
+      <h3 style="margin:0;font-family:'Abril Fatface',serif;font-size:22px;font-weight:400">Adresse</h3>
+      <p style="margin:14px 0 0;font-size:16px;font-weight:300;line-height:1.7;color:rgba(20,18,14,.75)">32 route d'Aulnay<br>93140 Bondy</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=Brasserie+de+l'Ourcq+32+route+d'Aulnay+93140+Bondy" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;font-weight:500;border-bottom:1px solid #C4A265;padding-bottom:2px">Ouvrir l'itinéraire →</a>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(20,18,14,.08);border-radius:18px;padding:34px 30px">
+      <h3 style="margin:0;font-family:'Abril Fatface',serif;font-size:22px;font-weight:400">Horaires</h3>
+      <p style="margin:14px 0 0;font-size:16px;font-weight:300;line-height:1.7;color:rgba(20,18,14,.75)">Ouvert tous les jours<br><strong style="font-weight:500;color:#14120E">7h — 23h</strong><br>Brunch le week-end</p>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(20,18,14,.08);border-radius:18px;padding:34px 30px">
+      <h3 style="margin:0;font-family:'Abril Fatface',serif;font-size:22px;font-weight:400">Réservations</h3>
+      <p style="margin:14px 0 0;font-size:16px;font-weight:300;line-height:1.7;color:rgba(20,18,14,.75)">Uniquement par téléphone</p>
+      <a href="tel:+33956566844" style="display:inline-block;margin-top:14px;background:{{ accent }};color:#F2E9D8;padding:12px 22px;border-radius:999px;font-weight:500;font-size:15px" style-hover="background:#0D2C22;color:#F2E9D8"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:8px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>09 56 56 68 44</a>
+      <p style="margin:14px 0 0"><a href="https://www.instagram.com/lourcq93/" target="_blank" rel="noopener" style="font-weight:500;border-bottom:1px solid #C4A265;padding-bottom:2px">Instagram @lourcq93 →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Footer" style="background:#14120E;color:rgba(242,233,216,.75);padding:56px 24px 34px">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between">
+    <div style="display:flex;align-items:center;gap:14px">
+      <img src="assets/logo.jpg" alt="Logo" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:1px solid rgba(196,162,101,.5)">
+      <div>
+        <div style="font-family:'Abril Fatface',serif;font-weight:400;font-size:20px;color:#F7F3EC">Brasserie de l'Ourcq</div>
+        <div style="font-size:13px;letter-spacing:.08em">Halal · Brunch · Bondy</div>
+      </div>
+    </div>
+    <div style="font-size:14.5px;font-weight:300;line-height:1.8">
+      32 route d'Aulnay, 93140 Bondy<br>
+      <a href="tel:+33956566844" style="color:#C4A265">09 56 56 68 44</a> · Tous les jours 7h—23h
+    </div>
+    <div style="display:flex;gap:20px;font-size:14px">
+      <a href="https://www.instagram.com/lourcq93/" target="_blank" rel="noopener" style="color:rgba(242,233,216,.75)" style-hover="color:#C4A265">Instagram</a>
+      <a href="#haut" style="color:rgba(242,233,216,.75)" style-hover="color:#C4A265">Haut de page</a>
+    </div>
+  </div>
+  <div style="max-width:1100px;margin:34px auto 0;padding-top:22px;border-top:1px solid rgba(242,233,216,.12);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:12.5px;color:rgba(242,233,216,.45)">
+    <span>© {{ year }} Brasserie de l'Ourcq — Tous droits réservés</span>
+    <span>Mentions légales (à compléter)</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#123B2E&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#123B2E&quot;,&quot;#4A2E1E&quot;,&quot;#5C1F27&quot;,&quot;#8A6A2F&quot;,&quot;#1F3A5C&quot;],&quot;section&quot;:&quot;Identité&quot;},&quot;showBanner&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Identité&quot;}}">
+class Component extends DCLogic {
+  state = { cat: 0, review: 0 };
+  REVIEWS = [
+    { text: "Franchement, super découverte ! La serveuse est vraiment adorable, toujours souriante et attentive. Les plats étaient vraiment très bons, on s'est régalés, et l'ambiance est chaleureuse et conviviale.", author: "Nawal O.", when: "il y a 1 jour" },
+    { text: "Une excellente brasserie où tout est maîtrisé. Les plats sont savoureux, bien présentés et préparés avec des produits de qualité. Une adresse fiable où l'on revient avec plaisir.", author: "Fad B.", when: "il y a 2 semaines" },
+    { text: "Excellent accueil et cuisine faite maison. Ça change vraiment de ce que l'on trouve habituellement à Bondy. Les plats sont copieux et nous nous sommes régalés.", author: "Sam G.", when: "il y a 1 mois" },
+    { text: "Très bonne adresse, accueil chaleureux, plats travaillés ce qui en fait une vraie brasserie de quartier qualitative. Cela nous manquait.", author: "A. Sna", when: "il y a 2 jours" },
+    { text: "Le restau est très propre, le personnel est au petit soin et la nourriture est excellente !", author: "Marouan E.", when: "il y a 2 jours" },
+    { text: "Super cuisine, la qualité est au rendez-vous. Je conseille pour bien manger et passer un bon moment. Merci pour l'accueil chaleureux.", author: "Maxime C.", when: "il y a 4 semaines" },
+    { text: "Menu midi du jour : entrée, plat et soda pour moins de 20 €. Très bon rapport qualité prix. À noter, le menu change chaque jour.", author: "Émilie C.", when: "il y a 1 jour" },
+    { text: "Nous avons dégusté un hamburger et nous sommes régalés ! Le burger était savoureux, le pain moelleux et les ingrédients frais. Les frites étaient excellentes.", author: "Thinhinane O.", when: "il y a 6 jours" }
+  ];
+  componentDidMount() {
+    this._t = setInterval(() => this.setState(s => ({ review: (s.review + 1) % this.REVIEWS.length })), 5500);
+  }
+  componentWillUnmount() { clearInterval(this._t); }
+  MENU = [
+    { name: "Le Brunch du week-end", items: [
+      { name: "La Chakchouka Signature", desc: "", price: "13,00 €" },
+      { name: "Tajine Kefta aux œufs", desc: "", price: "13,00 €" },
+      { name: "Le Croissant Smash Burger", desc: "", price: "13,00 €" },
+      { name: "L'Avocado Toast Oriental", desc: "", price: "12,00 €" },
+      { name: "Brioche au bœuf effiloché", desc: "", price: "13,00 €" },
+      { name: "Crêpe salée “La Forestière”", desc: "", price: "12,00 €" },
+      { name: "La Formule Complète", desc: "Le brunch complet du week-end", price: "25,00 €" }
+    ]},
+    { name: "Les Entrées", items: [
+      { name: "Tartare de saumon gravlax", desc: "Crème d'avocat et citron vert", price: "11,00 €" },
+      { name: "Burrata crémeuse", desc: "Roquette, tomates confites et copeaux de parmesan", price: "9,50 €" },
+      { name: "Carpaccio de bœuf", desc: "Roquette, parmesan et huile de truffe", price: "10,50 €" },
+      { name: "Escargots de Bourgogne", desc: "Au beurre persillé", price: "7,50 €" },
+      { name: "Ravioli farcis", desc: "Crème de parmesan et éclats de baies roses", price: "8,50 €" },
+      { name: "Croustillant de crevettes", desc: "Sauce aux fines herbes", price: "8,00 €" },
+      { name: "Camembert rôti au miel et thym", desc: "Pain croustillant", price: "7,90 €" },
+      { name: "Dôme de saumon fumé", desc: "Œuf poché et mesclun", price: "11,50 €" }
+    ]},
+    { name: "Les Plats", items: [
+      { name: "Entrecôte grillée “Maître d'Hôtel”", desc: "Jus de viande corsé, frites maison", price: "23,00 €" },
+      { name: "Confit de canard croustillant", desc: "Pommes grenailles rissolées à l'ail et persillade", price: "17,50 €" },
+      { name: "Souris d'agneau des Sept Reues", desc: "Jus réduit au thym et purée maison", price: "21,00 €" },
+      { name: "Suprême de volaille aux morilles", desc: "Tagliatelles fraîches", price: "18,50 €" },
+      { name: "Mille-feuille de dorade royale farcie", desc: "Riz parfumé et petits légumes", price: "19,50 €" },
+      { name: "Risotto crémeux", desc: "Champignons de Paris et pleurotes", price: "15,50 €" },
+      { name: "Rigatoni à la crème de truffe noire", desc: "Burrata fondante", price: "16,50 €" },
+      { name: "Linguine à la Carbonara Traditionnelle", desc: "", price: "14,50 €" },
+      { name: "Ballotine de bœuf basse température", desc: "Jus réduit et écrasé de pommes de terre à l'huile de truffe", price: "19,50 €" },
+      { name: "Tartare de bœuf façon Brasserie", desc: "", price: "16,50 €" },
+      { name: "Tartare de bœuf à l'Italienne", desc: "", price: "17,50 €" }
+    ]},
+    { name: "Les Burgers", items: [
+      { name: "Le Classique", desc: "Steak haché frais, cheddar, oignons confits, tomates, salade", price: "14,50 €" },
+      { name: "Le BBQ Effiloché", desc: "Effiloché de bœuf fondant, sauce barbecue fumée, cheddar, roquette et oignons rouges", price: "16,50 €" },
+      { name: "Le Dolce Vita", desc: "Steak de bœuf, burrata crémeuse, pesto basilic, tomates confites et roquette fraîche", price: "17,50 €" },
+      { name: "Burger Saumon & Avocat", desc: "Pavé de saumon, avocat, burrata et roquette", price: "18,50 €" },
+      { name: "Le Chicken Roquefort", desc: "Filet de poulet croustillant, sauce crémeuse au roquefort, bacon, tomate et oignons rouges", price: "15,50 €" }
+    ]},
+    { name: "Les Pinsa Romana", items: [
+      { name: "L'Océane", desc: "Saumon et burrata", price: "14,50 €" },
+      { name: "Quatre Fromages", desc: "Sauce tomate, mozzarella, bleu, chèvre et parmesan", price: "13,50 €" },
+      { name: "Carpaccio & Burrata", desc: "Roquette", price: "15,50 €" },
+      { name: "Spéciale du Chef", desc: "Poulet et œuf", price: "14,50 €" }
+    ]},
+    { name: "Les Douceurs Sucrées", items: [
+      { name: "Brioche perdue", desc: "", price: "8,00 €" },
+      { name: "Pancakes “Cloudy”", desc: "", price: "9,00 €" },
+      { name: "Gaufre authentique", desc: "", price: "7,00 €" },
+      { name: "Crêpe gourmande", desc: "", price: "6,00 €" }
+    ]}
+  ];
+  renderVals() {
+    const accent = this.props.accent ?? "#123B2E";
+    const active = this.state.cat;
+    return {
+      accent,
+      showBanner: this.props.showBanner ?? true,
+      year: new Date().getFullYear(),
+      reviews: this.REVIEWS.map((r, i) => ({ ...r, opacity: i === this.state.review ? 1 : 0 })),
+      dots: this.REVIEWS.map((r, i) => ({
+        bg: i === this.state.review ? "#C4A265" : "rgba(242,233,216,.3)",
+        onClick: () => this.setState({ review: i })
+      })),
+      cats: this.MENU.map((c, i) => ({
+        name: c.name,
+        bg: i === active ? accent : "transparent",
+        fg: i === active ? "#F2E9D8" : "rgba(20,18,14,.75)",
+        border: i === active ? accent : "rgba(20,18,14,.3)",
+        onClick: () => this.setState({ cat: i })
+      })),
+      items: this.MENU[active].items
+    };
+  }
+}
+</script>
+</body>
+</html>
